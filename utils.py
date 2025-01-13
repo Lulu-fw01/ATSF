@@ -22,7 +22,7 @@ def InitExponentialSmoothing(x, h, Params):
     T = len(x)
     alpha = Params['alpha']
     AdaptationPeriod=Params['AdaptationPeriod']
-    FORECAST = [np.NaN]*(T+h)
+    FORECAST = [np.nan]*(T+h)
     if alpha>1:
         w.warn('Alpha can not be more than 1')
         #alpha = 1
@@ -95,7 +95,7 @@ def HoltExponentialSmoothing(x, h, Params):
     beta = Params['beta']
     AdaptationPeriod = Params['AdaptationPeriod']
     
-    FORECAST = [np.NaN]*(T+h)
+    FORECAST = [np.nan]*(T+h)
     if alpha>1:
         w.warn('Alpha can not be more than 1')
         #alpha = 1
@@ -114,15 +114,15 @@ def HoltExponentialSmoothing(x, h, Params):
         return FORECAST
     
     
-    l= np.NaN
-    b= np.NaN
+    l= np.nan
+    b= np.nan
     
     for t in range(T):
         if not math.isnan(x[t]):
             if math.isnan(l):
                 l = x[t]
                 b = x[t+1]-x[t]
-                t0 = np.NaN
+                t0 = np.nan
                 
             l_prev = l    
                         
@@ -144,9 +144,9 @@ def AdditiveWintersExponentialSmoothing(x, h, Params):
     gamma = Params['gamma']
     p = Params['seasonality_period']
     
-    FORECAST = [np.NaN]*(T+h)
+    FORECAST = [np.nan]*(T+h)
     
-    l= np.NaN
+    l= np.nan
     s= []
     
     for cntr in range(T):
@@ -174,10 +174,10 @@ def TheilWageExponentialSmoothing(x, h, Params):
     gamma = Params['gamma']
     p = Params['seasonality_period']
     
-    FORECAST = [np.NaN]*(T+h)
+    FORECAST = [np.nan]*(T+h)
     
-    l= np.NaN
-    b=np.NaN
+    l= np.nan
+    b=np.nan
     s= []
     
     for cntr in range(T):
@@ -217,7 +217,7 @@ def AdaptiveExponentialSmoothing(x, h, Params):
     alpha = Params['alpha']
     gamma = Params['gamma']
     AdaptationPeriod=Params['AdaptationPeriod']
-    FORECAST = [np.NaN]*(T+h)
+    FORECAST = [np.nan]*(T+h)
     if alpha>1:
         w.warn('Alpha can not be more than 1')
         #alpha = 1
@@ -226,10 +226,10 @@ def AdaptiveExponentialSmoothing(x, h, Params):
         w.warn('Alpha can not be less than 0')
         #alpha = 0
         return FORECAST
-    y = np.NaN
-    t0= np.NaN
-    e1= np.NaN
-    e2= np.NaN
+    y = np.nan
+    t0= np.nan
+    e1= np.nan
+    e2= np.nan
     Kt_1 = alpha
     K=alpha
     for t in range(0, T):
